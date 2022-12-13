@@ -19,6 +19,7 @@ locals {
   # Load VM SKU/image details from porter.yaml
   porter_yaml   = yamldecode(file("${path.module}/../porter.yaml"))
   vm_sizes      = local.porter_yaml["custom"]["vm_sizes"]
+  os_disk_sizes = local.porter_yaml["custom"]["os_disk_sizes"]
   image_details = local.porter_yaml["custom"]["image_options"]
 
   # Create local variables to support the VM resource

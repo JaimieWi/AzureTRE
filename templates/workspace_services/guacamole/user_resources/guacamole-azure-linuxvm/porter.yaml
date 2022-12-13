@@ -1,12 +1,15 @@
 ---
 name: tre-service-guacamole-linuxvm
-version: 0.5.2
+version: 0.6.0
 description: "An Azure TRE User Resource Template for Guacamole (Linux)"
 dockerfile: Dockerfile.tmpl
 registry: azuretre
 
 custom:
   # For information on vm_sizes and image_options, see README.me in the guacamole/user-resources folder
+  os_disk_sizes:
+    "32GB": 32
+    "64GB": 64
   vm_sizes:
     "2 CPU | 8GB RAM": Standard_D2s_v5
     "4 CPU | 16GB RAM": Standard_D4s_v5
@@ -86,6 +89,9 @@ parameters:
   - name: vm_size
     type: string
     default: "2 CPU | 8GB RAM"
+  - name: os_disk_size
+    type: string
+    default: "32GB"
   - name: shared_storage_access
     type: boolean
     default: true
@@ -130,6 +136,7 @@ install:
         tre_resource_id: "{{ bundle.parameters.id }}"
         image: "{{ bundle.parameters.os_image }}"
         vm_size: "{{ bundle.parameters.vm_size }}"
+        os_disk_size: "{{ bundle.parameters.os_disk_size }}"
         shared_storage_access: "{{ bundle.parameters.shared_storage_access }}"
         shared_storage_name: "{{ bundle.parameters.shared_storage_name }}"
         image_gallery_id: "{{ bundle.parameters.image_gallery_id }}"
@@ -154,6 +161,7 @@ upgrade:
         tre_resource_id: "{{ bundle.parameters.id }}"
         image: "{{ bundle.parameters.os_image }}"
         vm_size: "{{ bundle.parameters.vm_size }}"
+        os_disk_size: "{{ bundle.parameters.os_disk_size }}"
         shared_storage_access: "{{ bundle.parameters.shared_storage_access }}"
         shared_storage_name: "{{ bundle.parameters.shared_storage_name }}"
         image_gallery_id: "{{ bundle.parameters.image_gallery_id }}"
@@ -187,6 +195,7 @@ uninstall:
         tre_resource_id: "{{ bundle.parameters.id }}"
         image: "{{ bundle.parameters.os_image }}"
         vm_size: "{{ bundle.parameters.vm_size }}"
+        os_disk_size: "{{ bundle.parameters.os_disk_size }}"
         shared_storage_access: "{{ bundle.parameters.shared_storage_access }}"
         shared_storage_name: "{{ bundle.parameters.shared_storage_name }}"
         image_gallery_id: "{{ bundle.parameters.image_gallery_id }}"

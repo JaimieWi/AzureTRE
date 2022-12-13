@@ -4,6 +4,7 @@ variable "parent_service_id" {}
 variable "tre_resource_id" {}
 variable "image" {}
 variable "vm_size" {}
+variable "os_disk_size" {}
 variable "shared_storage_access" {
   type = bool
 }

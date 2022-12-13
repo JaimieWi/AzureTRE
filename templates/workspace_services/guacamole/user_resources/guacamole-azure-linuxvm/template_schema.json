@@ -33,6 +33,17 @@
       ],
       "updateable": true
     },
+    "os_disk_size": {
+      "$id": "#/properties/os_disk_size",
+      "type": "string",
+      "title": "OS Disk Size",
+      "description": "Select size of OS Disk",
+      "enum": [
+        "32GB",
+        "64GB"
+      ],
+      "updateable": true
+    },
     "shared_storage_access": {
       "$id": "#/properties/shared_storage_access",
       "type": "boolean",
