@@ -17,5 +17,6 @@ export enum ApiEndpoint {
     InvokeAction = 'invoke-action',
     Costs = 'costs',
     Metadata = ".metadata",
-    Health = "health"
+    Health = "health",
+    Dashboard = "dashboard"
 }

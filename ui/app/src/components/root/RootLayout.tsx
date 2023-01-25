@@ -2,6 +2,8 @@ import { Spinner, SpinnerSize, Stack } from '@fluentui/react';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Admin } from '../../App';
+import { Dashboard } from '../shared/Dashboard';
+import { Dashboard2 } from '../shared/Dashboard2';
 import { ApiEndpoint } from '../../models/apiEndpoints';
 import { Workspace } from '../../models/workspace';
 import { useAuthApiCall, HttpMethod, ResultType } from '../../hooks/useAuthApiCall';
@@ -142,6 +144,18 @@ export const RootLayout: React.FunctionComponent = () => {
                   <Route path="/" element={<SecuredByRole element={<SharedServices />} allowedRoles={[RoleName.TREAdmin]} errorString={"You must be a TRE Admin to access this area"}/>} />
                   <Route path=":sharedServiceId" element={<SecuredByRole element={<SharedServiceItem />} allowedRoles={[RoleName.TREAdmin]} errorString={"You must be a TRE Admin to access this area"}/>} />
                 </Routes>
+              } />
+              <Route path="/dashboard" element={
+                <Routes>
+                  <Route path="/" element={<SecuredByRole element={<Dashboard />} allowedRoles={[RoleName.TREAdmin]} errorString={"You must be a TRE Admin to access this area"}/>} />
+                </Routes>
+              } />
+              <Route path="/dashboard2" element={
+                <Dashboard2
+                  workspaces={workspaces}
+                  addWorkspace={(w: Workspace) => addWorkspace(w)}
+                  updateWorkspace={(w: Workspace) => updateWorkspace(w)}
+                  removeWorkspace={(w: Workspace) => removeWorkspace(w)} />
               } />
             </Routes>
           </Stack.Item>

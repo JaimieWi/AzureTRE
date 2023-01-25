@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@fluentui/example-data": "^8.4.5",
+    "@fluentui/font-icons-mdl2": "^8.5.6",
+    "@fluentui/react-components": "^9.11.1",
+    "@fluentui/react-icons": "^2.0.192",
+    "lts": "^1.2.0"
+  }
+}

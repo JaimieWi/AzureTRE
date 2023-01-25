@@ -32,6 +32,28 @@ export const LeftNav: React.FunctionComponent = () => {
       });
   }
 
+    // show dashboard link if TRE Admin
+  if (appRolesCtx.roles.includes(RoleName.TREAdmin)) {
+    navLinkGroups[0].links.push(
+      {
+        name: 'Dashboard',
+        url: '/dashboard',
+        key: 'dashboard',
+        icon: 'Info'
+      });
+  }
+
+      // show dashboard link if TRE Admin
+  if (appRolesCtx.roles.includes(RoleName.TREAdmin)) {
+    navLinkGroups[0].links.push(
+      {
+        name: 'Dashboard2',
+        url: '/dashboard2',
+        key: 'dashboard2',
+        icon: 'Info'
+      });
+  }
+
   return (
     <Nav
       onLinkClick={(e, item) => { e?.preventDefault(); item?.url && navigate(item.url) }}
